@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+}
+.App{
+  display: flex;
+}
+.first{
+  background-color: crimson;
+  width: 50%;
+  margin-left: 20px;
+  height: 140px;
+  border-radius: 10px;
+}
+.card{
+  background-color: #55ca55;
+  width: 50%;
+  margin-left: 20px;
+  height: 140px;
+  border-radius: 10px;
+}
