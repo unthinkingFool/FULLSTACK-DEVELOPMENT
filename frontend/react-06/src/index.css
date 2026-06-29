@@ -1,43 +1,42 @@
-*{
+* {
   padding: 0px;
-  margin : 0px
+  margin: 0px;
 }
 
-.app{
+.app {
   background-color: gray;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height : 200px;
-  width : 200px;
-  padding : 6px;
+  height: 200px;
+  width: 200px;
+  padding: 6px;
 }
-.app p{
+.app p {
   background-color: black;
-  height : 70%;
-  display : flex;
+  height: 70%;
+  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
-.app p span{
+.app p span {
   background-color: gray;
   padding: 4px;
-  margin : 4px;
-  height : 20px;
+  margin: 4px;
+  height: 20px;
   width: 20px;
-    display : flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-.buttons{
-  width:100%;
-  height : 30%;
- 
-      display : flex;
+.buttons {
+  width: 100%;
+  height: 30%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap:20px;
-  
+  gap: 20px;
 }
 .buttons button {
   height: 30px;
