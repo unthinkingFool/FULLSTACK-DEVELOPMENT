@@ -1,9 +1,7 @@
-const express=require('express')
+// server.js => to start the created server
+const app= require("./src/app");
 
-const app=express()
-app.get("/",(req,res) => {
-    res.send("hello world")
-})
-
-
-app.listen(3000)
+app.listen(3000,() =>{
+    console.log("server is running at port 3000");
+}
+)
