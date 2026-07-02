@@ -3,21 +3,32 @@
 const express= require('express')
 
 const app=express()
+
+const {
+    createNote,
+    getAllNotes,
+    getNoteById,
+    updateNote,
+    deleteNote
+} = require("./models/note.model");
+
 app.use(express.json())
 
 const notes=[]
 
 // to post anything on server
-app.post('/notes' ,(req, res)=>{
-    notes.push(req.body)
+app.post('/notes' ,async (req, res)=>{
+    const note=await createNote(req.body.title, req.body.description)
     res.status(201).json({
-        message:"note created successfully"
+        message:"note created successfully",
+        note:note
     })
 }
 )
 
 // to get anything or fetch anything from server
-app.get('/notes',(req,res)=>{
+app.get('/notes',async (req,res)=>{
+    const notes=await getAllNotes()
     res.status(200).json({
         message:"notes fetched successfully",
         notes:notes
@@ -25,9 +36,9 @@ app.get('/notes',(req,res)=>{
 })
 
 // delete ---> /notes/:index
-app.delete('/notes/:index' , (req,res)=>{
+app.delete('/notes/:index' , async (req,res)=>{
     const index=req.params.index
-    delete notes[index]
+    await deleteNote(index)
     res.status(200).json({
         message:`note of index ${index} deleted `
     })
@@ -35,11 +46,11 @@ app.delete('/notes/:index' , (req,res)=>{
 })
 
 // patch --> to update any existing thing on server
-app.patch("/notes/:index",(req,res)=>{
+app.patch("/notes/:index",async (req,res)=>{
     const index=req.params.index;
     const desc=req.body.description;
 
-    notes[index].description=desc
+    await updateNote(index, req.body.title, desc)
     res.status(200).json({
         message:`description of note ${index} updated successfully`
     })
@@ -49,7 +60,7 @@ app.patch("/notes/:index",(req,res)=>{
 module.exports=app
 
 
-// password : 8X9j0PDEGCwq1w4Y
+
 
 
 
